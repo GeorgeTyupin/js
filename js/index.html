@@ -1,0 +1,29 @@
+<script>
+       
+var alphabet = [ 'a' , 'b' , 'c' , 'd' ,  'e' , 'f'];
+var string = [];    
+var str = prompt();
+/*alphabet[0] = str[0]
+console.iog(alphabet);*/
+var len = str.length;
+str.toLocaleLowerCase();    
+    
+for (var i = 0; i < len; i++ ){
+    string[i] = str[i]
+}
+
+function encode(){
+for (var i = 0 ; i < len; i++  ) {
+  var index  = alphabet.indexOf(string[i]);
+ if (index == 6)   {
+     index = -1
+ }
+ 
+    string[i] = alphabet[index+1];
+}
+}
+    
+//string [0] = 'J';
+    encode();
+console.log(string);
+</script>
