@@ -1,0 +1,36 @@
+
+<html>
+<head>
+<style>
+
+img{
+	top: 100px;
+	position:relative;
+}
+
+
+</style>
+</head>
+
+<body onkeydown = "move_left()">
+
+<img src="C:\Users\user0203\Downloads\1.jpg" style="height: 120;" >
+
+<script>
+	 //console.log(document.body.childNodes[1]);
+var elem = document.body.getElementsByTagName('img')[0];
+console.log(elem);
+
+function move_left(){ 
+	console.log(getComputedStyle(elem).top);
+	y = ( getComputedStyle(elem).top.indexOf("px"));
+    //
+    console.log();
+    str = Number(getComputedStyle(elem).top.substring(0, y));
+    elem.style.top = str - 10 + 'px';
+      }
+
+ console.log(elem);
+</script>
+</body>
+</html>
