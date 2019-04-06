@@ -3,31 +3,49 @@
 
 <head>
 	<style>
-img {position: relative;
+img {position: absolute;
 margin-left: 45%;
-margin-top: 10% }
+margin-top: 10%; }
 
 div { background: black; 
 height: 7rem; 
-width: 7rem;}			
+width: 7rem;}
+
+.imge {position: absolute;
+height: 210px;}	
 
 	</style>
 </head>
 
-<body>
+<body onkeydown="spawn()" >
 
 <img src="https://gamepedia.cursecdn.com/minecraft_gamepedia/archive/6/6c/20101021113705%21Spawner.png" onclick="spawn()" >
 
 <script>
 
+
+setTimeout(print, 100);
+
+function print ( ) {
+console.log(document.body.getElementsByTagName('img'));
+}
+
+
+
 	function spawn() {
-/*var btn = document.createElement("img");  
+/*var btn = document.createElement("div");  
 btn.class = "Orr class" ;          
 document.body.appendChild(btn); */
 
-var btn = document.createElement("div");  
-btn.class = "Orr class"           
+let btn = document.createElement("img");  
+btn.classList.add ("imge");
+btn.src = 'https://playzone.in.ua/wiki/mc/images/thumb/e/e1/Blaze01.png/150px-Blaze01.png';   
+btn.style.top = Math.ceil(Math.random()* (10000 - 0) - 2000) +'px';    
+btn.style.left = Math.ceil(Math.random()* (10000 - 0) - 4500) +'px';    
 document.body.appendChild(btn);  
+//console.log(Math.ceil(Math.random()* (20 - 0) - 7));
+
+setTimeout(spawn, 1);
 
 	}
 
