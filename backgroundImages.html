@@ -1,0 +1,131 @@
+<html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+body {
+		background-size: cover;
+		background-repeat: no-repeat;
+}
+
+.registration {
+	width:80%;
+	margin-left:10%;
+	margin-right:10%;
+	margin-top: 15%; 
+	display:none;
+}
+.profile{
+	width:80%;
+	margin-left:10%;
+	margin-right:10%;
+	margin-top: 5%;
+	display:none;
+}
+.looks {
+	list-style-type: none;
+}
+.looks li {
+	display: inline-block;
+	padding-top: 2rem;
+	margin-left: 1rem;
+}
+.looks li img {
+	width:5rem;
+	height: 4rem;
+}
+</style>
+
+<body>
+
+<div class='registration'>
+	<div class='jumbotron'>
+	   <div class=row>
+			<div class='col'>
+				<input class="form-control" id="inputName" type="text" placeholder="Имя">
+				<ul class='looks'>
+
+
+					<li><img src='https://www.aduvan.ru/wp-content/uploads/photo-gallery/abstractions-texturs/texture-abstraction_(1).jpg'></li>
+
+					<li><img src='http://rylik.ru/uploads/posts/2014-10/1412718635_1.jpg'></li>
+
+					<li><img src='https://i.pinimg.com/originals/be/26/a0/be26a0f9ec6dd71e19b8a73d17eb1535.jpg'>
+					</li>
+
+
+				</ul>
+			</div>
+	   		<div class='col' align="center">
+				<h1>Регистрируйся</h1>
+				<p>И выбери заставку</p>
+				<a id='memDone' class="btn btn-primary btn-lg">Запомнить</a>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<div class='profile'>
+	<div align="center" class='jumbotron'>
+		<h1 id='hello'>Привет , </h1>
+		<p>Теперь ты знаешь как использовать куки , пора научиться их удалять</p>
+		<a id='logout' class="btn btn-primary btn-lg">Выйти</a>
+	</div>           
+</div>
+
+<script type="text/javascript">
+function get_cookie(name) {
+  var matches = document.cookie.match(new RegExp(
+    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+  ));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+if (get_cookie("name"))
+ {
+ name = get_cookie("name");
+ elem = document.getElementsByClassName('profile')	;
+ elem[0].style.display = "block";
+
+ } 
+
+else {
+elem = document.getElementsByClassName('registration')	;
+ elem[0].style.display = "block"
+ Background_Image();
+}
+
+
+function Background_Image(){
+var list = document.getElementsByTagName('img');
+console.log(list[0].src);
+
+list[0].addEventListener('click', function event(){
+	document.body.style.backgroundImage = "url("+list[0].src+")";});
+
+list[1].addEventListener('click', function event(){
+	document.body.style.backgroundImage = "url("+list[1].src+")";});
+
+list[2].addEventListener('click', function event(){
+	document.body.style.backgroundImage = "url("+list[2].src+")";});
+
+
+btn = document.getElementById('memDone');
+//console.log(btn[0].src);
+btn.addEventListener('click', function event(){
+name = document.getElementById('inputName').value;
+document.cookie = 'privet='+name+';';
+src = document.body.style.backgroundImage;
+document.cookie = 'backgroundImage='+src+';';
+location.reload();
+});
+	
+
+}
+
+
+	
+
+
+
+</script>
